@@ -1,0 +1,23 @@
+{
+    "name": "sampa/drk_project",
+    "description": "A webpage for attendance management system",
+    "require": {
+        "php": "8.2.12",
+       
+    "phpoffice/phpspreadsheet": "^4.1"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Sampa\\DrkProject\\": "src/"
+        }
+    },
+   
+        "authors": [
+        {
+            "name": "Kamsani Sampath Reddy",
+            "email": "sampathreddykamsani@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
