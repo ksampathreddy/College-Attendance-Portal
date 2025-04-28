@@ -1,5 +1,5 @@
 # DRKIST Attendance Portal
-**Live Website**: [Click Here](https://drkist.infinityfreeapp.com/?i=1)  
+**Live Website**: # [Click Here](https://drkist.infinityfreeapp.com/?i=1)  
 ![Project Logo](assets/images/drk.png)  
 > A web-based attendance management system I built for my college( DRK Institute of Science and Technology) using my foundational coding skills augmented with AI assistance.
 As a CSE (AI & ML) student at DRKIST, I developed this attendance portal to:
