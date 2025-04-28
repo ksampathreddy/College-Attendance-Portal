@@ -1,7 +1,11 @@
 # DRKIST Attendance Portal
-
 ![Project Logo](assets/images/drk.png)  
-*A digital attendance management system for educational institutions*
+> A web-based attendance management system I built for my college( DRK Institute of Science and Technology) using my foundational coding skills augmented with AI assistance.
+As a CSE (AI & ML) student at DRKIST, I developed this attendance portal to:
+- Solve real-world administrative challenges at my college
+- Apply my basic web development knowledge in a practical project
+- Learn through hands-on experience with guidance from AI tools
+- Contribute to my institution's digital transformation
 
 ## 🚀 Features
 
@@ -24,14 +28,13 @@
 - MySQL (Database)
 
 
-
 ### Setup Steps
 
 ##1. **Install XAMPP**
-Download from [Apache Friends](https://www.apachefriends.org/) and install with default settings.
+Download from [Apache](https://www.apachefriends.org/) and install with default settings.
 
 ##2. **Clone repository**:
-   git clone https://github.com/yourusername/college-attendance-portal.git
+   git clone https://github.com/ksampathreddy/college-attendance-portal.git
    after installing XAMMP
    Place the project folder in:
    C:\xampp\htdocs\college-attendance-portal
@@ -42,8 +45,8 @@ Download from [Apache Friends](https://www.apachefriends.org/) and install with 
 
 ##4. **Database Setup**
 1. Open phpMyAdmin (`http://localhost/phpmyadmin`)
-2. Create new database: `attendance_portal`
-3. Import SQL file:
+2. Create new database: `drk`
+3. Import SQL file: ('drk.sql')
 
 ##5. *Access Portal*
-Open browser → http://localhost/attendance-portal
+Open browser → http://localhost/college-attendance-portal
