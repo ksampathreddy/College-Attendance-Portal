@@ -9,7 +9,7 @@ As a CSE (AI & ML) student at DRKIST, I developed this attendance portal to:
 - Contribute to my institution's digital transformation
 
 ## 🚀 Features
-
+- **ChatBot**: "Answer's all the queries regarding College"
 - **Role-based access control** (Admin, Teacher, Student)
 - Admin: Manage Faculty, Students, subjects, timetables, View Attendance
 - Teachers: Mark/view attendance
