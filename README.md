@@ -1,6 +1,6 @@
 # College Attendance Portal 
 
-![Attendance Portal Demo](http://drkist.infinityfreeapp.com/) 
+[Attendance Portal Demo](http://drkist.infinityfreeapp.com/) 
 
 A web-based portal for managing college attendance with admin, faculty, and student dashboards.
 
