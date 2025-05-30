@@ -18,9 +18,11 @@ A web-based portal for managing college attendance with admin, faculty, and stud
 - View personal attendance
 - Check percentage/defects
 
+### ChatBot
+A ChatBot for the getting answer the basic queries of the College
 
 ### Installation
 1. Clone the repository:
-
    git clone https://github.com/ksampathreddy/college-attendance-portal.git
+   
    cd college-attendance-portal
