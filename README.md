@@ -7,19 +7,28 @@ A web-based portal for managing college attendance, Track and manage attendance 
 ## Features 
 
 ###  Admin
-- Generate attendance reports (PDF/Excel)
-- Monitor attendance trends
+-View Statistics of Faculty, Students, Attendance.
+-Can Add Faculty and Assign Subjects to the faculty.
+-Add Students and View their Attendance Posted by Faculty.
+- Generate attendance reports (Excel)
+- Post Notices and TimeTables
+-Can Erase Faculty, Students and Attendance 
 
 ### Faculty
-- Take real-time attendance 
-- Export attendance records
+- Take real-time attendance for Assigned Subjects.
+-View and Export attendance records for Assigned Subjects.
 
+### Students
+- View personal attendance Based on RollNo and Semester.
+- Viewing of Attendance can be done in 3 ways (Total Attendance, Subject Attendance Attendance on Date)
+- Check percentage/defects
+  
 ###Time Table
 -Student Can View the Time Table Based on Batch, Branch, Section(Optional) and Semester
 
-### Students
-- View personal attendance
-- Check percentage/defects
+###Notice Board
+-Student View the notices posted by administrator.
+
 
 ### ChatBot
 A ChatBot for the getting answer the basic queries of the College
