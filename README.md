@@ -1,8 +1,8 @@
 # College Attendance Portal 
 
-[Attendance Portal Demo](http://drkist.infinityfreeapp.com/) 
+## Attendance Portal Demo [Click Here](http://drkist.infinityfreeapp.com/) 
 
-A web-based portal for managing college attendance with admin, faculty, and student dashboards.
+A web-based portal for managing college attendance, Track and manage attendance with our comprehensive portal. Students can check their records, teachers can mark attendance, and administrators can generate reports.
 
 ## Features 
 
@@ -13,6 +13,9 @@ A web-based portal for managing college attendance with admin, faculty, and stud
 ### Faculty
 - Take real-time attendance 
 - Export attendance records
+
+###Time Table
+-Student Can View the Time Table Based on Batch, Branch, Section(Optional) and Semester
 
 ### Students
 - View personal attendance
