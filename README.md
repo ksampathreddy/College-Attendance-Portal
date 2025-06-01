@@ -24,17 +24,19 @@ A web-based portal for managing college attendance, Track and manage attendance 
 - Check percentage/defects
   
 ### Time Table
--Student Can View the Time Table Based on Batch, Branch, Section(Optional) and Semester
+- Student Can View the Time Table Based on Batch, Branch, Section(Optional) and Semester
 
 ### Notice Board
--Student View the notices posted by administrator.
+- Student View the notices posted by administrator.
 
 
 ### ChatBot
 A ChatBot for the getting answer the basic queries of the College
 
 ### Installation
-1. Clone the repository:
-   git clone https://github.com/ksampathreddy/college-attendance-portal.git
-   
-   cd college-attendance-portal
+Clone the repository:
+   - git clone https://github.com/ksampathreddy/college-attendance-portal.git
+   - place the college-attendance-portal folder in htdocs folder of xammp in C Drive.
+   - Turn ON Apache and MySQL in XAMMP Control Panel.
+   - Create Database drk in local host.
+   - Then Browse localhost/college-attendance-portal in Browser .
