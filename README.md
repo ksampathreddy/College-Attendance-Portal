@@ -7,12 +7,12 @@ A web-based portal for managing college attendance, Track and manage attendance 
 ## Features 
 
 ###  Admin
--View Statistics of Faculty, Students, Attendance.
--Can Add Faculty and Assign Subjects to the faculty.
--Add Students and View their Attendance Posted by Faculty.
+- View Statistics of Faculty, Students, Attendance.
+- Can Add Faculty and Assign Subjects to the faculty.
+- Add Students and View their Attendance Posted by Faculty.
 - Generate attendance reports (Excel)
 - Post Notices and TimeTables
--Can Erase Faculty, Students and Attendance 
+- Can Erase Faculty, Students and Attendance 
 
 ### Faculty
 - Take real-time attendance for Assigned Subjects.
@@ -23,10 +23,10 @@ A web-based portal for managing college attendance, Track and manage attendance 
 - Viewing of Attendance can be done in 3 ways (Total Attendance, Subject Attendance Attendance on Date)
 - Check percentage/defects
   
-###Time Table
+### Time Table
 -Student Can View the Time Table Based on Batch, Branch, Section(Optional) and Semester
 
-###Notice Board
+### Notice Board
 -Student View the notices posted by administrator.
 
 
