@@ -20,18 +20,18 @@ A web-based portal for managing college attendance, Track and manage attendance 
 
 ### Students
 - View personal attendance Based on RollNo and Semester.
-- Viewing of Attendance can be done in 3 ways (Total Attendance, Subject Attendance Attendance on Date)
-- Check percentage/defects
+- Viewing of Attendance can be done in 3 ways (Total Attendance, Subject Attendance Attendance on Date).
+- Check percentage/defects.
   
 ### Time Table
-- Student Can View the Time Table Based on Batch, Branch, Section(Optional) and Semester
+- Student Can View the Time Table Based on Batch, Branch, Section(Optional) and Semester.
 
 ### Notice Board
 - Student View the notices posted by administrator.
 
 
 ### ChatBot
-A ChatBot for the getting answer the basic queries of the College
+- A ChatBot for the getting answer the basic queries of the College.
 
 ### Installation
 Clone the repository:
