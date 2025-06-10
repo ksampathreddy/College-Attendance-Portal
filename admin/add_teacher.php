@@ -30,8 +30,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'])) {
     $check_stmt->store_result();
     
     if ($check_stmt->num_rows > 0) {
-        $message = "<p class='error'>Username already exists!</p>";
+        // Faculty exists - update password
+        $update_sql = "UPDATE teachers SET password = ? WHERE username = ?";
+        $update_stmt = $conn->prepare($update_sql);
+        $update_stmt->bind_param("ss", $password, $username);
+        
+        if ($update_stmt->execute()) {
+            $message = "<p class='success'>Password updated for existing faculty member!</p>";
+        } else {
+            $message = "<p class='error'>Error updating password: " . $conn->error . "</p>";
+        }
     } else {
+        // Faculty doesn't exist - insert new record
         $sql = "INSERT INTO teachers (username, password) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $username, $password);
@@ -56,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['excel_file'])) {
         $highestRow = $sheet->getHighestRow();
         
         $successCount = 0;
+        $updateCount = 0;
         $errorCount = 0;
         $errorMessages = [];
         
@@ -64,27 +75,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['excel_file'])) {
             $password = $sheet->getCell('B' . $row)->getValue();
             
             if (!empty($username) && !empty($password)) {
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                
+                // Check if user exists
                 $check_sql = "SELECT username FROM teachers WHERE username = ?";
                 $check_stmt = $conn->prepare($check_sql);
                 $check_stmt->bind_param("s", $username);
                 $check_stmt->execute();
                 $check_stmt->store_result();
                 
-                if ($check_stmt->num_rows == 0) {
-                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                    $insert_sql = "INSERT INTO teachers (username, password) VALUES (?, ?)";
-                    $insert_stmt = $conn->prepare($insert_sql);
-                    $insert_stmt->bind_param("ss", $username, $hashed_password);
-                    
-                    if ($insert_stmt->execute()) {
-                        $successCount++;
+                if ($check_stmt->num_rows > 0) {
+                    // Update existing user
+                    $sql = "UPDATE teachers SET password = ? WHERE username = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("ss", $hashed_password, $username);
+                    if ($stmt->execute()) {
+                        $updateCount++;
                     } else {
                         $errorCount++;
                         $errorMessages[] = "Row $row: " . $conn->error;
                     }
                 } else {
-                    $errorCount++;
-                    $errorMessages[] = "Row $row: Username '$username' already exists";
+                    // Insert new user
+                    $sql = "INSERT INTO teachers (username, password) VALUES (?, ?)";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("ss", $username, $hashed_password);
+                    if ($stmt->execute()) {
+                        $successCount++;
+                    } else {
+                        $errorCount++;
+                        $errorMessages[] = "Row $row: " . $conn->error;
+                    }
                 }
             } else {
                 $errorCount++;
@@ -92,9 +113,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['excel_file'])) {
             }
         }
         
-        $message = "<p class='success'>Successfully imported $successCount faculty members.</p>";
+        $message = "<p class='success'>Successfully added $successCount new faculty members and updated $updateCount existing ones.</p>";
         if ($errorCount > 0) {
-            $message .= "<p class='error'>$errorCount rows failed to import.</p>";
+            $message .= "<p class='error'>$errorCount rows failed to process.</p>";
             $message .= "<div class='error-details' style='max-height: 150px; overflow-y: auto; margin-top: 10px;'>";
             $message .= "<ul>";
             foreach ($errorMessages as $error) {
@@ -455,7 +476,31 @@ if (isset($_GET['faculty'])) {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+     .password-strength {
+            margin-top: 5px;
+            height: 5px;
+            background: #eee;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .weak { background: #ff4757; width: 33%; }
+        .medium { background: #ffa502; width: 66%; }
+        .strong { background: #2ed573; width: 100%; }
+        
+        .password-requirements {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #666;
+        }
     </style>
+    
 </head>
 <body>
     <div class="dashboard-container">
@@ -496,7 +541,7 @@ if (isset($_GET['faculty'])) {
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn">Add Faculty</button>
+                    <button type="submit" class="btn">Add/Update Faculty</button>
                 </form>
             </div>
             
@@ -512,12 +557,10 @@ if (isset($_GET['faculty'])) {
                 
                 <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 4px;">
                     <h4>Excel File Format:</h4>
-                    <a href="../templates/faculty_template.xlsx" class="btn btn-secondary" download>
-    <i class="fas fa-file-download"></i> Download Template
-</a>
+                    <a href="../templates/faculty_template.xlsx" class="btn" download>Download Template</a>
                     <p>Please prepare your Excel file with exactly 2 columns:</p>
                     <ul>
-                        <li><strong>Column A:</strong> Faculty name</li>
+                        <li><strong>Column A:</strong> Faculty username</li>
                         <li><strong>Column B:</strong> Password</li>
                     </ul>
                     <p>First row should contain headers, data starts from row 2.</p>
@@ -604,7 +647,8 @@ if (isset($_GET['faculty'])) {
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         function openTab(tabName) {
@@ -702,7 +746,6 @@ if (isset($_GET['faculty'])) {
             });
         });
     </script>
-    
     <a href="admin_dashboard.php" class="back-link">← Back to Dashboard</a>
 </body>
 </html>
