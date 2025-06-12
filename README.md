@@ -38,5 +38,5 @@ Clone the repository:
    - git clone https://github.com/ksampathreddy/college-attendance-portal.git
    - place the college-attendance-portal folder in htdocs folder of xammp in C Drive.
    - Turn ON Apache and MySQL in XAMMP Control Panel.
-   - Create Database drk in local host.
+   - Create Database drk in local host and import database file.
    - Then Browse localhost/college-attendance-portal in Browser .
