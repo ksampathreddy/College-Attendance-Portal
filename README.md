@@ -2,14 +2,14 @@
 
 ## Attendance Portal Demo [Click Here](http://drkist.infinityfreeapp.com/) 
 
-A web-based portal for managing college attendance, Track and manage attendance with our comprehensive portal. Students can check their records, teachers can mark attendance, and administrators can generate reports.
+A web-based portal for managing college attendance, Track and manage attendance with comprehensive portal. Students can check their attendance, teachers can mark attendance, and administrators can generate reports.
 
 ## Features 
 
 ###  Admin
 - View Statistics of Faculty, Students, Attendance.
 - Can Add Faculty and Assign Subjects to the faculty.
-- Add Students and View their Attendance Posted by Faculty.
+- Add Students and View their Attendance Posted by Faculty (Total Attendance, Subject Attendance, Attendance on Date).
 - Generate attendance reports (Excel)
 - Post Notices and TimeTables
 - Can Erase Faculty, Students and Attendance 
@@ -20,7 +20,7 @@ A web-based portal for managing college attendance, Track and manage attendance 
 
 ### Students
 - View personal attendance Based on RollNo and Semester.
-- Viewing of Attendance can be done in 3 ways (Total Attendance, Subject Attendance Attendance on Date).
+- Viewing of Attendance can be done in 3 ways (Total Attendance, Subject Attendance, Attendance on Date).
 - Check percentage/defects.
   
 ### Time Table
